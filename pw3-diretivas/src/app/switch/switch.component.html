@@ -1,0 +1,11 @@
+<button (click)="incrementar()">Incrementar</button>
+
+<p>{{numero}}</p> <!-- Interpolação -->
+
+@switch (numero){
+  @case (1) { <p>Um</p> }
+  @case (2) { <p>Dois</p> }
+  @case (3) { <p>Três</p> }
+  @case (4) { <p>Quatro</p> }
+  @default { <p>Outro número</p> }
+}

@@ -1,0 +1,11 @@
+<button (click)="addTeste()">Adicionar</button>
+
+<!-- Remove o elemento da renderização do html, não é possível vê-lo no inspecionar -->
+@if (nomes.length == 0){
+  <p>Não tem nomes disponíveis</p>
+} @else {
+  <p>Agora há nomes disponíveis</p>
+}
+
+<!-- hidden oculta o elemento da página mas não remove da renderização do html; não é recomendado em dados sensíveis -->
+<p [hidden]="nomes.length > 0">Não tem nomes disponíveis</p>

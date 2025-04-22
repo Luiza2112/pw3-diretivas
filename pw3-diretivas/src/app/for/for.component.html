@@ -1,0 +1,12 @@
+<!--<p>{{professor[0]}}</p>-->
+
+@for (item of professores; track $index){
+  <li>{{$index+1}} - {{item}}
+  <button (click)="remover($index)">Remover</button>
+</li>
+}
+
+<button (click)="exibirTarefas()">{{tarefas}}</button>
+@for (item of lista; track $index){
+  <li>{{$index+1}} - {{item}}</li>
+}

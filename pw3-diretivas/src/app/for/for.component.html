@@ -1,12 +1,18 @@
 <!--<p>{{professor[0]}}</p>-->
 
+<p>Testes com For:</p>
+
 @for (item of professores; track $index){
   <li>{{$index+1}} - {{item}}
   <button (click)="remover($index)">Remover</button>
 </li>
 }
 
-<button (click)="exibirTarefas()">{{tarefas}}</button>
-@for (item of lista; track $index){
-  <li>{{$index+1}} - {{item}}</li>
+<p></p>
+
+<p>Tarefas:</p>
+<button (click)="exibirTarefas()">{{tarefasBotao}}</button> <!-- Exibir concluídas; exibir todas-->
+
+@for (item of listaFiltrada; track $index){
+  <li>{{$index+1}} - {{item.nome}}</li>
 }

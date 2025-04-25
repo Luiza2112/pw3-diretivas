@@ -14,21 +14,35 @@ export class ForComponent {
     this.professores.splice(index, 1);
   }
 
-  lista: object[] = [
+  // ----- Tarefas ----- //
+
+  tarefasBool : boolean = true;
+  tarefasBotao : String = "Mostrar concluídas";
+
+  // Usar apenas object[] -> deixa vago e genérico, pode dar erro ao reconhecer o tipo de cada campo
+  lista: { id: number; nome: string; conceito: boolean }[] = [ // especifica o tipo de cada campo do objeto e evita erros
     {"id": 1, "nome":"Estudar", "conceito": true},
     {"id": 2, "nome": "Modificar o TCC", "conceito": false},
     {"id": 3, "nome": "Estudar Matematica", "conceito": true}]
 
-  tarefasBool:boolean = true;
+    // Colocar o objeto direto no html não funciona, então a lista vai armazenar cada objeto em array e exibir
+    listaFiltrada: { id: number; nome: string; conceito: boolean }[] = [];
 
-  tarefas: String = "Mostrar tudo";
+    constructor(){
+      this.listaFiltrada = this.lista; // Inicia exibindo tudo no html
+    }
 
   exibirTarefas(){
-    if (this.tarefasBool == true){
-      this.tarefas == "Mostrar tudo";}
-    else{
-      this.tarefas == "Mostrar só as concluidas";
+    this.tarefasBool = !this.tarefasBool; // Cada clique muda/inverte a variável entre true e false
+
+    if (this.tarefasBool){ // Caso seja true
+      this.tarefasBotao = "Mostrar concluídas";
+      this.listaFiltrada = this.lista; // Exibe a lista completa
+
+    } else{ // Caso seja false
+      this.tarefasBotao = "Mostrar tudo";
+      // Filtra a lista e coloca em listaFiltrada os objetos com conceito = true, ou seja, concluídos
+      this.listaFiltrada = this.lista.filter(item => item.conceito);
      }
-     this.tarefasBool = false;
   }
 }

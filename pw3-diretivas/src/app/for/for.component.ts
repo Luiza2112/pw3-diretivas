@@ -36,13 +36,26 @@ export class ForComponent {
     this.tarefasBool = !this.tarefasBool; // Cada clique muda/inverte a variável entre true e false
 
     if (this.tarefasBool){ // Caso seja true
-      this.tarefasBotao = "Mostrar concluídas";
+      this.tarefasBotao = "Exibir concluídas";
       this.listaFiltrada = this.lista; // Exibe a lista completa
 
     } else{ // Caso seja false
-      this.tarefasBotao = "Mostrar tudo";
+      this.tarefasBotao = "Exibir tudo";
       // Filtra a lista e coloca em listaFiltrada os objetos com conceito = true, ou seja, concluídos
       this.listaFiltrada = this.lista.filter(item => item.conceito);
      }
   }
+
+  /* Lógica do Professor:
+
+  onExibirTudo(){
+    this.exibirTudo = !this.exibirTudo;
+  }
+
+  getConcluidas(){
+    return this.tarefas.filter((item) => {
+      return item.conceito;})
+  }
+
+  */
 }

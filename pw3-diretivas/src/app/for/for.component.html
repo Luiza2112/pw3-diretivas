@@ -14,5 +14,9 @@
 <button (click)="exibirTarefas()">{{tarefasBotao}}</button> <!-- Exibir concluídas; exibir todas-->
 
 @for (item of listaFiltrada; track $index){
-  <li>{{$index+1}} - {{item.nome}}</li>
+  <li>{{$index+1}} - {{item.nome}} <span>{{item.conceito ? '- Concluída' : ''}}</span></li>
 }
+
+<!--
+
+-->
